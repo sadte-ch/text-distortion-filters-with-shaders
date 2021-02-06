@@ -1,4 +1,4 @@
-# text-distortion-filters-with-shaders
+# Text Distortion Filters With Shaders
 Type distortion filters in p5.js with shaders
 
 enjoy :) 
