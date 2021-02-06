@@ -10,7 +10,7 @@ function waveDistortionShader() {
     } else if(freqDirection === 'freq desc') {
       freq = map(mouseX, 0, width, maxFreq, 0);
     }
-    
+
     let ampDirection = getGuiVal('mouseX');
     let maxAmp = getGuiVal('maxAmp');
     if(ampDirection === 'amp asc') {
@@ -18,7 +18,7 @@ function waveDistortionShader() {
     } else if(freqDirection === 'freq desc') {
       amp = map(mouseX, 0, width, maxAmp, 0);
     }
-    
+
   } else if(mode === 'auto') {
     amp = getGuiVal('amplitude');
     if(direction === 'forwards') {
@@ -26,7 +26,7 @@ function waveDistortionShader() {
       if(freq > 50) direction = 'backwards';
     } else if(direction === 'backwards') {
       freq = freq-=0.03;
-      if(freq < 0) direction = 'forwards'
+      if(freq < 1.0) direction = 'forwards'
     }
   } else if(mode === 'absolute') {
     amp = getGuiVal('amplitude');

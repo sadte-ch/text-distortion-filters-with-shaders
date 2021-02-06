@@ -4,4 +4,31 @@ html, body {
 }
 canvas {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.dg.ac {
+  z-index:1000;
+}
+.dg.main li.cr {
+  background: rgba(10,10,10,0.85);
+}
+.dg.main li.folder .title {
+  opacity: 0.9;
+}
+p {
+  color: blue;
+  font-family: sans-serif;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.2s ease 1s forwards;
+  margin-top: 5rem;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }

@@ -1,33 +1,32 @@
 let gui = new dat.gui.GUI();
 
 var obj = {
-  text: 'sad',
-  text2: 'tech',
-  lineSpacing: 0.2,
+  text: 'sad__tech',
+  text2: '',
+  text3: '',
+  lineSpacing: 0.01,
   repeatY: 1,
   mode: 'auto',
 
-  explode: function () {
-    alert('Bang!');
-  },
-
-  speed: 0.02,
+  speed: 0.05,
   shaderType: 'waveDistortion',
 
-  font: 'archivo',
+  font: 'shapiro',
   textAlign: 'center',
-  textSize: 0.3,
-  background: [29,0,252],
-  textColour: [150, 255, 0],
+  textSize: 0.05,
+  background: [0,0,255],
+  textColour: [44, 255, 0],
   strokeColour: [0,0,0],
   strokeWidth: 0.0
 };
 
+gui.close(true);
 gui.remember(obj);
 
 gui.add(obj, 'text');
 gui.add(obj, 'text2');
-gui.add(obj, 'lineSpacing').min(0.0).max(1.0).step(0.05);
+gui.add(obj, 'text3')
+gui.add(obj, 'lineSpacing').min(-1.0).max(1.0).step(0.01);
 gui.add(obj, 'repeatY').min(1).max(10).step(1);
 gui.add(obj, 'mode', [ 'auto', 'mouse', 'absolute' ] );
 
@@ -45,9 +44,9 @@ resetShaderParams()
 
 // --------------- text vars -----------------
 var f3 = gui.addFolder('Design Options');
-    f3.add(obj, 'font', ['barlow', 'abril', 'archivo', 'bebas', 'caveat', 'exo2', 'gravitas', 'indieFlower', 'josefineSans', 'pressStart', 'robotoMono', 'spaceMono', 'viaodaLibre']);
+    f3.add(obj, 'font', ['shapiro','eurostile','norms','formulaCondensed','gillSans','franklinGothic','futura','robotoMono','mantra','restora','tiffany','didot']);
     f3.add(obj, 'textAlign', ['center', 'left', 'right']);
-    f3.add(obj, 'textSize').min(0.1).max(2.0);
+    f3.add(obj, 'textSize').min(0.01).max(2.0).step(0.01);
     f3.addColor(obj, 'background');
     f3.addColor(obj, 'textColour');
     f3.add(obj, 'strokeWidth').min(0.0).max(100.0);

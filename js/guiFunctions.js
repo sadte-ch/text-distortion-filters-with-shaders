@@ -8,7 +8,7 @@ var shaders = {
     amplitude: {
       type: 'slider',
       modes: ['auto', 'absolute'],
-      val: 0.01,
+      val: 0.02,
       min: -0.4,
       max: 0.4,
       step: 0.001
@@ -152,23 +152,23 @@ const resetShaderParams = () => {
   guiItemKeys.forEach(item => {
     removeGuiItem(item)
   })
-  
+
   //loop through data params for current shader + show/hide depending on current mode
   let shaderData = shaders[obj.shaderType]
   if(shaderData) {
     let params = Object.keys(shaderData);
     let currentParams = [];
-    
+
     params.forEach(key => {
       //only show if needed/used for current mode
       let paramData = shaderData[key]
       let showModes = paramData.modes;
-      
+
       if(showModes && showModes.includes(obj.mode)) {
         currentParams.push(key)
       }
     });
-    
+
     //loop through params to show for mode and add to shader folder in gui panel
     currentParams.forEach(param => {
       let paramData = shaderData[param];
@@ -179,7 +179,7 @@ const resetShaderParams = () => {
 
 const addGuiItem = (key, paramData) => {
   obj[key] = paramData.val;
-  let inputType = paramData.type 
+  let inputType = paramData.type
   let item = null
   if(inputType === 'slider') {
     item = f2.add(obj, key).min(paramData.min).max(paramData.max).step(paramData.step)
