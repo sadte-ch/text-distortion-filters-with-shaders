@@ -22,16 +22,22 @@ function waveDistortionShader() {
   } else if(mode === 'auto') {
     amp = getGuiVal('amplitude');
     if(direction === 'forwards') {
-      freq = freq+=0.03;
-      if(freq > 50) direction = 'backwards';
+      freq = freq+=freqStep;
+      if(freq > maxFreq) direction = 'backwards';
     } else if(direction === 'backwards') {
-      freq = freq-=0.03;
-      if(freq < 1.0) direction = 'forwards'
+      freq = freq-=freqStep;
+      if(freq < minFreq) {
+        if(recordingLoop) {
+          stopRecordingLoop()
+        }
+        direction = 'forwards'
+      }
     }
   } else if(mode === 'absolute') {
     amp = getGuiVal('amplitude');
     freq = getGuiVal('frequency');
   }
+  // console.log('loop', recordingLoop, freq, direction)
 
   currentShader.setUniform('frequency', freq);
   currentShader.setUniform('amplitude', amp);
