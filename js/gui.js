@@ -28,9 +28,6 @@ var obj = {
   stopRecording: function() {
     stopRecording()
   },
-  recordLoop: function() {
-    recordLoop()
-  },
   saveImage: function() {
     captureCanvas()
   }
@@ -72,7 +69,6 @@ var f4 = gui.addFolder('Capture');
 		f4.add(obj, 'startRecording');
 		f4.add(obj, 'stopRecording');
 		f4.add(obj, 'saveImage');
-    f4.add(obj, 'recordLoop');
 
 
 const getGuiVal = (param) => {

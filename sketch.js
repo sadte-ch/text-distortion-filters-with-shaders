@@ -197,14 +197,6 @@ function stopRecording() {
 	capturer = null;
 }
 
-function recordLoop() {
-	console.log('record loop')
-  freq = minFreq
-  direction = 'forwards'
-  recordingLoop = true
-  startRecording()
-}
-
 function stopRecordingLoop() {
   console.log('stop loop')
   recordingLoop = false
