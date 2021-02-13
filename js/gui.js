@@ -19,6 +19,15 @@ var obj = {
   textColour: [44, 255, 0],
   strokeColour: [0,0,0],
   strokeWidth: 0.0,
+  randomiseColours: function() {
+    let colours = [[33,0,255], [1,1,2], [253,154,1], [153,254,3], [223,0,195], [211,87,11], [111,170,7], [204,5,105]]
+    let rand1 = Math.floor(Math.random() * colours.length)
+    let rand2 = Math.floor(Math.random() * colours.length)
+    let rand3 = Math.floor(Math.random() * colours.length)
+    obj.textColour = colours[rand1]
+    obj.background = colours[rand2]
+    obj.strokeColour = colours[rand3]
+  },
 
   // recording options ----------------
   recording: true,
@@ -67,6 +76,7 @@ var f3 = gui.addFolder('Design Options');
     f3.addColor(obj, 'textColour');
     f3.add(obj, 'strokeWidth').min(0.0).max(100.0);
     f3.addColor(obj, 'strokeColour');
+    f3.add(obj, 'randomiseColours');
 
 var f4 = gui.addFolder('Capture');
 		f4.add(obj, 'startRecording');
