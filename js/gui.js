@@ -10,11 +10,11 @@ var obj = {
   mode: 'auto',
 
   speed: 0.05,
-  shaderType: 'waveDistortion',
+  shaderType: 'waveDistortionY',
 
-  font: 'shapiro',
+  font: 'didot',
   textAlign: 'center',
-  textSize: 0.05,
+  textSize: 0.75,
   background: [0,0,255],
   textColour: [44, 255, 0],
   strokeColour: [0,0,0],

@@ -100,7 +100,7 @@ var shaders = {
     amplitude: {
       type: 'slider',
       modes: ['auto', 'absolute'],
-      val: 0.05,
+      val: 0.098,
       min: -0.4,
       max: 0.4,
       step: 0.001
