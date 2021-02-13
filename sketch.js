@@ -2,9 +2,15 @@ let shaderStore = {};
 let currentShader;
 let graphic;
 let fonts = {};
-let freq = 1.0, amp = 0.0;
+let minFreq = 20.0;
+let freqStep = 0.04;
+let maxFreq = 50;
+let freq = minFreq, amp = 0.0;
 let mode, shaderType;
 let direction = 'forwards';
+let capturer
+let captureStarted = false
+let recordingLoop = false
 
 function preload() {
   shaderStore.waveDistortion = loadShader('shaders/waveDistortion/shader.vert', 'shaders/waveDistortion/shader.frag');
@@ -34,6 +40,7 @@ function setup() {
   graphic = createGraphics(windowWidth, windowHeight);
 
   noStroke();
+  frameRate(24)
 }
 
 function draw() {
@@ -162,4 +169,48 @@ function setShaderParams() {
       break;
     default:
   }
+}
+
+function startRecording() {
+	if(!recording) recording = gui.add(obj, 'recording');
+	if(captureStarted) {
+		console.log('capture already started')
+		return
+	}
+  const canvas = document.getElementsByTagName('canvas')[0];
+  capturer = new CanvasRecorder(canvas);
+  captureStarted = true
+	capturer.start();
+}
+function stopRecording() {
+	if(recording) {
+		gui.remove(recording);
+		recording = null
+	}
+	if(!capturer) {
+		console.log('no capture')
+		return
+	}
+  captureStarted = false
+	capturer.stop();
+	capturer.save('sad__tech-text-distortion-recording.webm');
+	capturer = null;
+}
+
+function recordLoop() {
+	console.log('record loop')
+  freq = minFreq
+  direction = 'forwards'
+  recordingLoop = true
+  startRecording()
+}
+
+function stopRecordingLoop() {
+  console.log('stop loop')
+  recordingLoop = false
+  stopRecording()
+}
+
+function captureCanvas() {
+  ReImg.fromCanvas(document.getElementsByTagName('canvas')[0]).downloadPng()
 }
