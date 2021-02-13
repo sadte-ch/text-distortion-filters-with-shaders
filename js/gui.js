@@ -1,4 +1,5 @@
 let gui = new dat.gui.GUI();
+let recording = null
 
 var obj = {
   text: 'sad__tech',
@@ -17,7 +18,22 @@ var obj = {
   background: [0,0,255],
   textColour: [44, 255, 0],
   strokeColour: [0,0,0],
-  strokeWidth: 0.0
+  strokeWidth: 0.0,
+
+  // recording options ----------------
+  recording: true,
+  startRecording: function() {
+    startRecording()
+  },
+  stopRecording: function() {
+    stopRecording()
+  },
+  recordLoop: function() {
+    recordLoop()
+  },
+  saveImage: function() {
+    captureCanvas()
+  }
 };
 
 gui.close(true);
@@ -51,6 +67,12 @@ var f3 = gui.addFolder('Design Options');
     f3.addColor(obj, 'textColour');
     f3.add(obj, 'strokeWidth').min(0.0).max(100.0);
     f3.addColor(obj, 'strokeColour');
+
+var f4 = gui.addFolder('Capture');
+		f4.add(obj, 'startRecording');
+		f4.add(obj, 'stopRecording');
+		f4.add(obj, 'saveImage');
+    f4.add(obj, 'recordLoop');
 
 
 const getGuiVal = (param) => {
