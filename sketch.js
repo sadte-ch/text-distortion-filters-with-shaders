@@ -10,7 +10,6 @@ let mode, shaderType;
 let direction = 'forwards';
 let capturer
 let captureStarted = false
-let recordingLoop = false
 
 function preload() {
   shaderStore.waveDistortion = loadShader('shaders/waveDistortion/shader.vert', 'shaders/waveDistortion/shader.frag');

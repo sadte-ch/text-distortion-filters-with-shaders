@@ -27,9 +27,6 @@ function waveDistortionShader() {
     } else if(direction === 'backwards') {
       freq = freq-=freqStep;
       if(freq < minFreq) {
-        if(recordingLoop) {
-          stopRecordingLoop()
-        }
         direction = 'forwards'
       }
     }
