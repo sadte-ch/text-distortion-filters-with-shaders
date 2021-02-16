@@ -2,7 +2,7 @@ let gui = new dat.gui.GUI();
 let recording = null
 
 var obj = {
-  text: 'sad__tech',
+  text: '*',
   text2: '',
   text3: '',
   lineSpacing: 0.01,
@@ -18,7 +18,7 @@ var obj = {
   background: [0,0,255],
   textColour: [44, 255, 0],
   strokeColour: [0,0,0],
-  strokeWidth: 0.0,
+  strokeWidth: 2.0,
   randomiseColours: function() {
     let colours = [[33,0,255], [1,1,2], [253,154,1], [153,254,3], [223,0,195], [211,87,11], [111,170,7], [204,5,105]]
     let rand1 = Math.floor(Math.random() * colours.length)
