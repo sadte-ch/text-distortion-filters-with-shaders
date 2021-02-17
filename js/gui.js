@@ -1,6 +1,8 @@
 let gui = new dat.gui.GUI();
 let recording = null
 
+let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider']
+
 var obj = {
   text: '*',
   text2: '',
@@ -10,7 +12,7 @@ var obj = {
   mode: 'auto',
 
   speed: 0.05,
-  shaderType: 'waveDistortionY',
+  shaderType: modes[0],
 
   font: 'didot',
   textAlign: 'center',
@@ -37,9 +39,6 @@ var obj = {
   stopRecording: function() {
     stopRecording()
   },
-  recordLoop: function() {
-    recordLoop()
-  },
   saveImage: function() {
     captureCanvas()
   }
@@ -62,7 +61,7 @@ var f1 = gui.addFolder('Motion Options');
 
 // --------------- shader vars ---------------
 var f2 = gui.addFolder('Shader Options');
-    f2.add(obj, 'shaderType', Object.keys(shaders));
+    f2.add(obj, 'shaderType', modes);
 
 resetShaderParams()
 
@@ -82,7 +81,6 @@ var f4 = gui.addFolder('Capture');
 		f4.add(obj, 'startRecording');
 		f4.add(obj, 'stopRecording');
 		f4.add(obj, 'saveImage');
-    f4.add(obj, 'recordLoop');
 
 
 const getGuiVal = (param) => {
