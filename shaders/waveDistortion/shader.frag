@@ -44,11 +44,11 @@ void main() {
   if(mode == 2) {
     distort = vec2(sineWave, 0.0);
   }
-  // gridWave1
+  // sineWave
   if(mode == 3) {
     distort = vec2(sineWave, sineWave2);
   }
-  // gridWave2
+  // gridWave
   if(mode == 4) {
     distort = vec2(sineWave2, sineWave);
   }
