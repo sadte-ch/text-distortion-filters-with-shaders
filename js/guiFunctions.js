@@ -3,144 +3,50 @@
 // blur, colour separate, etc (other shader things)
 // other shader patterns/distortions
 
-var shaders = {
-  waveDistortion: {
-    amplitude: {
-      type: 'slider',
-      modes: ['auto', 'absolute'],
-      val: 0.02,
-      min: -0.4,
-      max: 0.4,
-      step: 0.001
-    },
-    frequency: {
-      type: 'slider',
-      modes: ['absolute'],
-      val: 0.1,
-      min: -50.0,
-      max: 50.0,
-      step: 0.5
-    },
-    freq: {
-      type: 'select',
-      modes: ['auto'],
-      val: 'auto increment',
-      options: ['auto increment']
-    },
-    mouseX: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'amp asc',
-      options: ['amp desc', 'amp asc']
-    },
-    maxAmp: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 0.25
-    },
-    mouseY: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'freq asc',
-      options: ['freq desc', 'freq asc']
-    },
-    maxFreq: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 10.0
-    }
+var shaderData = {
+  amplitude: {
+    type: 'slider',
+    modes: ['auto', 'absolute'],
+    val: 0.02,
+    min: -0.4,
+    max: 0.4,
+    step: 0.001
   },
-  waveDistortionX: {
-    amplitude: {
-      type: 'slider',
-      modes: ['auto', 'absolute'],
-      val: 0.05,
-      min: -0.4,
-      max: 0.4,
-      step: 0.001
-    },
-    frequency: {
-      type: 'slider',
-      modes: ['absolute'],
-      val: 0.01,
-      min: -0.4,
-      max: 0.4,
-      step: 0.001
-    },
-    freq: {
-      type: 'select',
-      modes: ['auto'],
-      val: 'auto increment',
-      options: ['auto increment']
-    },
-    mouseX: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'amp asc',
-      options: ['amp desc', 'amp asc']
-    },
-    maxAmp: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 0.25
-    },
-    mouseY: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'freq asc',
-      options: ['freq desc', 'freq asc']
-    },
-    maxFreq: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 10.0
-    }
+  frequency: {
+    type: 'slider',
+    modes: ['absolute'],
+    val: 0.1,
+    min: -50.0,
+    max: 50.0,
+    step: 0.5
   },
-  waveDistortionY: {
-    amplitude: {
-      type: 'slider',
-      modes: ['auto', 'absolute'],
-      val: 0.05,
-      min: -0.4,
-      max: 0.4,
-      step: 0.001
-    },
-    frequency: {
-      type: 'slider',
-      modes: ['absolute'],
-      val: 0.01,
-      min: -0.4,
-      max: 0.4,
-      step: 0.001
-    },
-    freq: {
-      type: 'select',
-      modes: ['auto'],
-      val: 'auto increment',
-      options: ['auto increment']
-    },
-    mouseX: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'amp asc',
-      options: ['amp desc', 'amp asc']
-    },
-    maxAmp: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 0.25
-    },
-    mouseY: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'freq asc',
-      options: ['freq desc', 'freq asc']
-    },
-    maxFreq: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 10.0
-    }
+  freq: {
+    type: 'select',
+    modes: ['auto'],
+    val: 'auto increment',
+    options: ['auto increment']
+  },
+  mouseX: {
+    type: 'select',
+    modes: ['mouse'],
+    val: 'amp asc',
+    options: ['amp desc', 'amp asc']
+  },
+  maxAmp: {
+    type: 'value',
+    modes: ['mouse'],
+    val: 0.25
+  },
+  mouseY: {
+    type: 'select',
+    modes: ['mouse'],
+    val: 'freq asc',
+    options: ['freq desc', 'freq asc']
+  },
+  maxFreq: {
+    type: 'value',
+    modes: ['mouse'],
+    val: 10.0
   }
 }
 
@@ -154,7 +60,6 @@ const resetShaderParams = () => {
   })
 
   //loop through data params for current shader + show/hide depending on current mode
-  let shaderData = shaders[obj.shaderType]
   if(shaderData) {
     let params = Object.keys(shaderData);
     let currentParams = [];

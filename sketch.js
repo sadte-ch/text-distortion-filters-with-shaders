@@ -1,4 +1,3 @@
-let shaderStore = {};
 let currentShader;
 let graphic;
 let fonts = {};
@@ -12,11 +11,7 @@ let capturer
 let captureStarted = false
 
 function preload() {
-  shaderStore.waveDistortion = loadShader('shaders/waveDistortion/shader.vert', 'shaders/waveDistortion/shader.frag');
-
-  shaderStore.waveDistortionX = loadShader('shaders/waveDistortionX/shader.vert', 'shaders/waveDistortionX/shader.frag');
-
-  shaderStore.waveDistortionY = loadShader('shaders/waveDistortionY/shader.vert', 'shaders/waveDistortionY/shader.frag');
+  currentShader = loadShader('shaders/waveDistortion/shader.vert', 'shaders/waveDistortion/shader.frag');
 
   fonts.shapiro = loadFont('assets/fonts/Shapiro-116InclinedExtd.otf');
   fonts.eurostile = loadFont('assets/fonts/EurostileExtendedBlack.ttf');
@@ -136,14 +131,13 @@ function shaderSetup() {
     mode = newMode;
     resetShaderParams();
   }
-  let newShaderType = getGuiVal('shaderType');
-  if(shaderType !== newShaderType) {
-    //if shader type has changed since last frame
-    shaderType = newShaderType;
-    resetShaderParams();
-  }
+  // let newShaderType = getGuiVal('shaderType');
+  // if(shaderType !== newShaderType) {
+  //   //if shader type has changed since last frame
+  //   shaderType = newShaderType;
+  //   resetShaderParams();
+  // }
 
-  currentShader = shaderStore[shaderType]
   shader(currentShader);
 
   currentShader.setUniform('tex', graphic);
@@ -156,18 +150,7 @@ function shaderSetup() {
 }
 
 function setShaderParams() {
-  switch(shaderType) {
-    case 'waveDistortion':
-      waveDistortionShader();
-      break;
-    case 'waveDistortionX':
-      waveDistortionShader();
-      break;
-    case 'waveDistortionY':
-      waveDistortionShader();
-      break;
-    default:
-  }
+  waveDistortionShader();
 }
 
 function startRecording() {

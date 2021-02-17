@@ -1,6 +1,8 @@
 let gui = new dat.gui.GUI();
 let recording = null
 
+let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider']
+
 var obj = {
   text: 'sad__tech',
   text2: '',
@@ -10,7 +12,7 @@ var obj = {
   mode: 'auto',
 
   speed: 0.05,
-  shaderType: 'waveDistortion',
+  shaderType: modes[0],
 
   font: 'shapiro',
   textAlign: 'center',
@@ -50,7 +52,7 @@ var f1 = gui.addFolder('Motion Options');
 
 // --------------- shader vars ---------------
 var f2 = gui.addFolder('Shader Options');
-    f2.add(obj, 'shaderType', Object.keys(shaders));
+    f2.add(obj, 'shaderType', modes);
 
 resetShaderParams()
 

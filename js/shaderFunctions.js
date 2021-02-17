@@ -35,7 +35,9 @@ function waveDistortionShader() {
     freq = getGuiVal('frequency');
   }
   // console.log('loop', recordingLoop, freq, direction)
-
+  let newShaderType = getGuiVal('shaderType');
+  let shaderModeIndex = modes.indexOf(newShaderType)
   currentShader.setUniform('frequency', freq);
   currentShader.setUniform('amplitude', amp);
+  currentShader.setUniform('mode', shaderModeIndex);
 }
