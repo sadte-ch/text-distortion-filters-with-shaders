@@ -20,34 +20,6 @@ var shaderData = {
     max: 50.0,
     step: 0.5
   },
-  freq: {
-    type: 'select',
-    modes: ['auto'],
-    val: 'auto increment',
-    options: ['auto increment']
-  },
-  mouseX: {
-    type: 'select',
-    modes: ['mouse'],
-    val: 'amp asc',
-    options: ['amp desc', 'amp asc']
-  },
-  maxAmp: {
-    type: 'value',
-    modes: ['mouse'],
-    val: 0.25
-  },
-  mouseY: {
-    type: 'select',
-    modes: ['mouse'],
-    val: 'freq asc',
-    options: ['freq desc', 'freq asc']
-  },
-  maxFreq: {
-    type: 'value',
-    modes: ['mouse'],
-    val: 10.0
-  }
 }
 
 let guiItems = {};
