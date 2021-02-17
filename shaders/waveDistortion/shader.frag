@@ -25,6 +25,7 @@ void main() {
   // *try changing uv.y to uv.x and see what happens
   float sineWave = sin(uv.y * frequency + speed) * amplitude;
   float sineWave2 = sin(uv.x * frequency + speed) * amplitude;
+  float tanWave = tan(uv.y * frequency + speed) * amplitude;
 
   // create a vec2 with our sine
   // what happens if you put sineWave in the y slot? in Both slots?
@@ -50,6 +51,22 @@ void main() {
   // gridWave2
   if(mode == 4) {
     distort = vec2(sineWave2, sineWave);
+  }
+  // scannerXY
+  if(mode == 5) {
+    distort = vec2(tanWave, sineWave);
+  }
+  // scannerY
+  if(mode == 6) {
+    distort = vec2(0.0, tanWave);
+  }
+  // scannerX
+  if(mode == 7) {
+    distort = vec2(tanWave, 0.0);
+  }
+  // ?
+  if(mode == 8) {
+    distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
   }
 
   // use mod() to wrap our texcoords back to 0.0 if they go over 1.0
