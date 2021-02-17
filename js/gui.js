@@ -1,7 +1,7 @@
 let gui = new dat.gui.GUI();
 let recording = null
 
-let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider']
+let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider', 'ripple1', 'ripple2']
 
 var obj = {
   text: 'sad__tech',

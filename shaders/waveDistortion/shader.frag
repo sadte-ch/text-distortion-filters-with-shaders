@@ -26,11 +26,12 @@ void main() {
   float sineWave = sin(uv.y * frequency + speed) * amplitude;
   float sineWave2 = sin(uv.x * frequency + speed) * amplitude;
   float tanWave = tan(uv.y * frequency + speed) * amplitude;
+  float cosWave = cos(uv.x * frequency + speed) * -0.01;
 
   // create a vec2 with our sine
   // what happens if you put sineWave in the y slot? in Both slots?
 
-  vec2 distort;
+  vec2 distort = vec2(0.0, 0.0);
 
   // waveXY
   if(mode == 0) {
@@ -64,9 +65,21 @@ void main() {
   if(mode == 7) {
     distort = vec2(tanWave, 0.0);
   }
-  // ?
+  // scannerY
   if(mode == 8) {
     distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
+  }
+  // ripple1
+  if(mode == 9) {
+    vec2 dir = vUV - vec2(0.5);
+  	float dist = distance(vUV, vec2(0.5));
+  	distort = dir * (sin(dist * frequency + (speed))) * amplitude;
+  }
+  // ripple2
+  if(mode == 10) {
+    vec2 dir = uv - vec2(0.5);
+  	float dist = distance(vUV, vec2(0.5));
+  	distort = dir * (sin(dist * frequency + (speed))) * amplitude;
   }
 
   // use mod() to wrap our texcoords back to 0.0 if they go over 1.0
