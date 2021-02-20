@@ -23,7 +23,7 @@ var obj = {
   strokeWidth: 0.0,
 
   // recording options ----------------
-  recording: true,
+  recording: 'Click stop to download',
   startRecording: function() {
     startRecording()
   },
