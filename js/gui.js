@@ -9,7 +9,7 @@ var obj = {
   text3: '',
   lineSpacing: 0.01,
   repeatY: 1,
-  mode: 'auto',
+  mode: 'auto freq',
 
   speed: 0.05,
   shaderType: modes[0],
@@ -39,6 +39,9 @@ var obj = {
   stopRecording: function() {
     stopRecording()
   },
+  recordLoop: function() {
+    recordLoop()
+  },
   saveImage: function() {
     captureCanvas()
   }
@@ -52,7 +55,7 @@ gui.add(obj, 'text2');
 gui.add(obj, 'text3')
 gui.add(obj, 'lineSpacing').min(-1.0).max(1.0).step(0.01);
 gui.add(obj, 'repeatY').min(1).max(10).step(1);
-gui.add(obj, 'mode', [ 'auto', 'mouse', 'absolute' ] );
+gui.add(obj, 'mode', [ 'auto freq', 'auto amp', 'mouse', 'absolute' ] );
 
 
 // --------------- motion vars ---------------
@@ -81,7 +84,7 @@ var f4 = gui.addFolder('Capture');
 		f4.add(obj, 'startRecording');
 		f4.add(obj, 'stopRecording');
 		f4.add(obj, 'saveImage');
-
+    f4.add(obj, 'recordLoop');
 
 const getGuiVal = (param) => {
   return obj[param]

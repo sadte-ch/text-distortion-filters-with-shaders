@@ -6,7 +6,7 @@
 var shaderData = {
   amplitude: {
     type: 'slider',
-    modes: ['auto', 'absolute'],
+    modes: ['auto freq', 'absolute'],
     val: 0.02,
     min: -0.4,
     max: 0.4,

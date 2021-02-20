@@ -9,6 +9,7 @@ let mode, shaderType;
 let direction = 'forwards';
 let capturer
 let captureStarted = false
+let recordingLoop = false
 
 function preload() {
   currentShader = loadShader('shaders/waveDistortion/shader.vert', 'shaders/waveDistortion/shader.frag');
@@ -177,6 +178,14 @@ function stopRecording() {
 	capturer.stop();
 	capturer.save('sad__tech-text-distortion-recording.webm');
 	capturer = null;
+}
+
+function recordLoop() {
+	console.log('record loop')
+  freq = minFreq
+  direction = 'forwards'
+  recordingLoop = true
+  startRecording()
 }
 
 function stopRecordingLoop() {
