@@ -64,7 +64,7 @@ void main() {
   if(mode == 7) {
     distort = vec2(tanWave, 0.0);
   }
-  // ?
+  // collider
   if(mode == 8) {
     distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
   }
