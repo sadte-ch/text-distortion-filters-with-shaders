@@ -34,7 +34,7 @@ var obj = {
   },
 
   // recording options ----------------
-  recording: true,
+  recording: 'Click stop to download',
   startRecording: function() {
     startRecording()
   },

@@ -3,6 +3,7 @@ let graphic;
 let fonts = {};
 let minFreq = 20.0;
 let freqStep = 0.04;
+let ampStep = 0.0001;
 let maxFreq = 50;
 let freq = minFreq, amp = 0.0;
 let mode, shaderType;

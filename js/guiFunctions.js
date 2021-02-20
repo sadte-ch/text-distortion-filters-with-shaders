@@ -21,33 +21,49 @@ var shaderData = {
     step: 0.5
   },
   freq: {
-      type: 'select',
-      modes: ['auto'],
-      val: 'auto increment',
-      options: ['auto increment']
-    },
-    mouseX: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'amp asc',
-      options: ['amp desc', 'amp asc']
-    },
-    maxAmp: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 0.25
-    },
-    mouseY: {
-      type: 'select',
-      modes: ['mouse'],
-      val: 'freq asc',
-      options: ['freq desc', 'freq asc']
-    },
-    maxFreq: {
-      type: 'value',
-      modes: ['mouse'],
-      val: 10.0
-    }
+    type: 'select',
+    modes: ['auto'],
+    val: 'auto increment',
+    options: ['auto increment']
+  },
+  mouseX: {
+    type: 'select',
+    modes: ['mouse'],
+    val: 'amp asc',
+    options: ['amp desc', 'amp asc']
+  },
+  maxAmp: {
+    type: 'value',
+    modes: ['mouse'],
+    val: 0.25
+  },
+  mouseY: {
+    type: 'select',
+    modes: ['mouse'],
+    val: 'freq asc',
+    options: ['freq desc', 'freq asc']
+  },
+  maxFreq: {
+    type: 'value',
+    modes: ['mouse'],
+    val: 20
+  },
+  freqStep: {
+    type: 'slider',
+    modes: ['auto freq', 'auto amp'],
+    val: freqStep,
+    min: 0.0,
+    max: 1.0,
+    step: 0.001
+  },
+  ampStep: {
+    type: 'slider',
+    modes: ['auto amp'],
+    val: ampStep,
+    min: 0.0,
+    max: 0.001,
+    step: 0.0001
+  }
 }
 
 let guiItems = {};

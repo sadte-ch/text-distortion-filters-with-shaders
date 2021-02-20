@@ -21,11 +21,12 @@ function waveDistortionShader() {
 
   } else if(mode === 'auto freq') {
     amp = getGuiVal('amplitude');
+    let freqStepVar = getGuiVal('freqStep');
     if(direction === 'forwards') {
-      freq = freq+=freqStep;
+      freq = freq+=freqStepVar;
       if(freq > maxFreq) direction = 'backwards';
     } else if(direction === 'backwards') {
-      freq = freq-=freqStep;
+      freq = freq-=freqStepVar;
       if(freq < minFreq) {
         if(recordingLoop) {
           stopRecordingLoop()
@@ -34,18 +35,25 @@ function waveDistortionShader() {
       }
     }
   } else if(mode === 'auto amp') {
-    // if(direction === 'forwards') {
-    //   freq = freq+=freqStep;
-    //   if(freq > maxFreq) direction = 'backwards';
-    // } else if(direction === 'backwards') {
-    //   freq = freq-=freqStep;
-    //   if(freq < minFreq) {
-    //     if(recordingLoop) {
-    //       stopRecordingLoop()
-    //     }
-    //     direction = 'forwards'
-    //   }
-    // }
+    let freqStepVar = getGuiVal('freqStep');
+    let ampStepVar = getGuiVal('ampStep');
+    if(direction === 'forwards') {
+      freq+=freqStepVar;
+      amp+=ampStepVar
+      if(freq > maxFreq) {
+        direction = 'backwards';
+        amp = 0;
+      }
+    } else if(direction === 'backwards') {
+      freq-=freqStepVar;
+      amp-=ampStepVar
+      if(freq < minFreq) {
+        if(recordingLoop) {
+          stopRecordingLoop()
+        }
+        direction = 'forwards'
+      }
+    }
   } else if(mode === 'absolute') {
     amp = getGuiVal('amplitude');
     freq = getGuiVal('frequency');
