@@ -1,7 +1,10 @@
 let gui = new dat.gui.GUI();
 let recording = null
 
-let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider']
+let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider', 'ripple']
+
+let colours = [[33,0,255], [1,1,2], [253,154,1], [153,254,3], [223,0,195], [211,87,11], [111,170,7], [204,5,105]]
+let colourNames = ['blue', 'black', 'light orange', 'lime green', 'light pink', 'dark orange', 'dark green', 'dark pink']
 
 var obj = {
   text: '*',
@@ -17,18 +20,17 @@ var obj = {
   font: 'didot',
   textAlign: 'center',
   textSize: 0.75,
-  background: [0,0,255],
-  textColour: [44, 255, 0],
-  strokeColour: [0,0,0],
-  strokeWidth: 2.0,
+  background: 'blue',
+  textColour: 'lime green',
+  strokeColour: 'lime green',
+  strokeWidth: 2.5,
   randomiseColours: function() {
-    let colours = [[33,0,255], [1,1,2], [253,154,1], [153,254,3], [223,0,195], [211,87,11], [111,170,7], [204,5,105]]
     let rand1 = Math.floor(Math.random() * colours.length)
     let rand2 = Math.floor(Math.random() * colours.length)
     let rand3 = Math.floor(Math.random() * colours.length)
-    obj.textColour = colours[rand1]
-    obj.background = colours[rand2]
-    obj.strokeColour = colours[rand3]
+    obj.textColour = colourNames[rand1]
+    obj.background = colourNames[rand2]
+    obj.strokeColour = colourNames[rand3]
   },
 
   // recording options ----------------
@@ -74,10 +76,10 @@ var f3 = gui.addFolder('Design Options');
     f3.add(obj, 'font', ['shapiro','eurostile','norms','formulaCondensed','gillSans','franklinGothic','futura','robotoMono','mantra','restora','tiffany','didot']);
     f3.add(obj, 'textAlign', ['center', 'left', 'right']);
     f3.add(obj, 'textSize').min(0.01).max(2.0).step(0.01);
-    f3.addColor(obj, 'background');
-    f3.addColor(obj, 'textColour');
+    f3.add(obj, 'background', colourNames);
+    f3.add(obj, 'textColour', colourNames);
     f3.add(obj, 'strokeWidth').min(0.0).max(100.0);
-    f3.addColor(obj, 'strokeColour');
+    f3.add(obj, 'strokeColour', colourNames);
     f3.add(obj, 'randomiseColours');
 
 var f4 = gui.addFolder('Capture');

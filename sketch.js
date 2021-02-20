@@ -55,12 +55,12 @@ function windowResized() {
 function createTextGraphic() {
   let gWth = graphic.width;
   let gHgt = graphic.height;
-  let bgColour = getGuiVal('background');
-  let textColour = getGuiVal('textColour');
+  let bgColour = colours[colourNames.indexOf(getGuiVal('background'))];
+  let textColour = colours[colourNames.indexOf(getGuiVal('textColour'))];
   let textAlign = getGuiVal('textAlign');
   let textSize = getGuiVal('textSize');
   let textOutlineWidth = getGuiVal('strokeWidth');
-  let textOutlineColour = getGuiVal('strokeColour');
+  let textOutlineColour = colours[colourNames.indexOf(getGuiVal('strokeColour'))];
   let currentFont = getGuiVal('font');
 
   graphic.background(bgColour);
@@ -132,12 +132,12 @@ function shaderSetup() {
     mode = newMode;
     resetShaderParams();
   }
-  // let newShaderType = getGuiVal('shaderType');
-  // if(shaderType !== newShaderType) {
-  //   //if shader type has changed since last frame
-  //   shaderType = newShaderType;
-  //   resetShaderParams();
-  // }
+  let newShaderType = getGuiVal('shaderType');
+  if(shaderType !== newShaderType) {
+    //if shader type has changed since last frame
+    shaderType = newShaderType;
+    resetShaderParams();
+  }
 
   shader(currentShader);
 

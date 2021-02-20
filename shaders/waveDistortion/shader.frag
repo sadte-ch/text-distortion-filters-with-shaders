@@ -68,6 +68,10 @@ void main() {
   if(mode == 8) {
     distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
   }
+  // ripple
+  if(mode == 9) {
+    distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
+  }
 
   // use mod() to wrap our texcoords back to 0.0 if they go over 1.0
   vec4 texColor = texture2D(tex, mod(uv + distort, 1.0));
