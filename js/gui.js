@@ -1,7 +1,7 @@
 let gui = new dat.gui.GUI();
 let recording = null
 
-let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider', 'ripple']
+let modes = ['waveXY', 'waveY', 'waveX', 'sineWave', 'gridWave', 'scannerXY', 'scannerY', 'scannerX', 'collider', 'ripple1', 'ripple2']
 
 let colours = [[33,0,255], [1,1,2], [253,154,1], [153,254,3], [223,0,195], [211,87,11], [111,170,7], [204,5,105]]
 let colourNames = ['blue', 'black', 'light orange', 'lime green', 'light pink', 'dark orange', 'dark green', 'dark pink']

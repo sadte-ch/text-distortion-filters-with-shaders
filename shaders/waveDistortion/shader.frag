@@ -68,9 +68,17 @@ void main() {
   if(mode == 8) {
     distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
   }
-  // ripple
+  // ripple1
   if(mode == 9) {
-    distort = vec2(sin(uv.x * uv.x + speed), cos(uv.y * uv.y + speed));
+    vec2 dir = vUV - vec2(0.5);
+  	float dist = distance(vUV, vec2(0.5));
+  	distort = dir * (sin(dist * frequency + (speed))) * amplitude;
+  }
+  // ripple2
+  if(mode == 10) {
+    vec2 dir = uv - vec2(0.5);
+  	float dist = distance(vUV, vec2(0.5));
+  	distort = dir * (sin(dist * frequency + (speed))) * amplitude;
   }
 
   // use mod() to wrap our texcoords back to 0.0 if they go over 1.0
