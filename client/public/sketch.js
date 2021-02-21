@@ -175,6 +175,7 @@ function stopRecording() {
 	}
   captureStarted = false
 	capturer.stop();
+  console.log(capturer)
 	capturer.save('sad__tech-text-distortion-recording.webm');
 	capturer = null;
 }
