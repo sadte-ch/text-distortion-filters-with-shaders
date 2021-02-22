@@ -13,6 +13,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+async function convertFile() {
+  const { promises: fs } = require("fs");
+  const webmToMp4 = require("webm-to-mp4");
+
+  await fs.writeFile("file.mp4", Buffer.from(webmToMp4(await fs.readFile("file.webm"))));
+}
+
+convertFile()
+
 
 app.use(routes);
 
