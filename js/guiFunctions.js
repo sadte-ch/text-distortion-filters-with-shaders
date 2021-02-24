@@ -22,7 +22,7 @@ var shaderData = {
   },
   freq: {
     type: 'select',
-    modes: ['auto'],
+    modes: ['auto freq'],
     val: 'auto increment',
     options: ['auto increment']
   },
